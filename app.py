@@ -96,7 +96,7 @@ class AnnouncementsDB:
         self.db = self.client.KISApp
         self.col = self.db.announcements
 
-    def insert_announcements(self, announcements: list[dict]):
+    def insert_announcements(self, announcements):
         result = self.col.insert_many(announcements)
         return result
 
