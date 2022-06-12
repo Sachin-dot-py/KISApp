@@ -3,3 +3,4 @@ Flask-APScheduler
 pymongo[srv]
 selenium
 webdriver-manager
+gunicorn
