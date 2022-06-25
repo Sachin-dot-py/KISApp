@@ -1,6 +1,4 @@
-flask
-Flask-APScheduler
 pymongo[srv]
+APScheduler
 selenium
 webdriver-manager
-gunicorn
