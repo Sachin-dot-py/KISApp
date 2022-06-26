@@ -85,20 +85,20 @@ class KISNET:
             for cell in cells:
                 text = cell.text.strip()
                 try:
-                    name, teacher, location = text.splitlines()
+                    name, location, teacher = text.splitlines()
                 except:
                     if "Self-Study" in text:
                         name = "Self-Study Period"
-                        teacher, location = "", ""
+                        location, teacher = "", ""
                     elif "Assembly / Classbonding" in text:
                         name = "Assembly / Classbonding"
-                        teacher, location = "", ""
+                        location, teacher = "", ""
                     elif "Study Period" in text:
                         name = "Study Period"
-                        teacher = ""
                         location = text.splitlines()[1]
+                        teacher = ""
                     else:
-                        name, teacher, location = "", "", ""
+                        name, location, teacher = "", "", ""
 
                 period = {'subject': name, 'teacher': teacher, 'location': location}
                 timetable[day-1].append(period)

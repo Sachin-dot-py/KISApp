@@ -1,3 +1,4 @@
+from time import sleep
 import pymongo
 from apscheduler.schedulers.blocking import BlockingScheduler
 from apscheduler.jobstores.mongodb import MongoDBJobStore
@@ -39,6 +40,7 @@ def update_schedules():
         # Turn schedule into the required dictionary format
         schedule = {f"Day {n+1}": schedule[n] for n in range(6)}
         schedules.append({"studentID": student['studentID'], "schedule": schedule})
+        sleep(5)
     schdb = SchedulesDB(MONGO_LINK)
     schdb.update_schedules(schedules)
     print("Updated schedules.")
@@ -53,5 +55,4 @@ def update_calendar():
 
 
 if __name__ == '__main__':
-    update_schedules()
     scheduler.start()
